@@ -1,32 +1,35 @@
 apiVersion: extensions/v1beta1 # for versions before 1.7.0 use apps/v1beta1
-kind: Deployment
+kind: ReplicationController
 metadata:
+  labels:
+    name: springboot
   name: spring-controller
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: springboot
   template:
     metadata:
       labels:
-        app: springboot
+        name: springboot
     spec:
       containers:
-      - name: springboot
-        image: naresh240/springbootdockerexample
+      - image: naresh240/springbootdockerexample
+        name: springboot
         ports:
-        - containerPort: 8080   
----      
+        - name: springboot
+          containerPort: 8081
+   
+---     
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    name: springboot
   name: springboot
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8081
+      targetPort: 8081
       nodePort: 30000
   selector:
-    app: springboot
+    name: springboot
