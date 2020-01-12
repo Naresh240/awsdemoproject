@@ -2,33 +2,33 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: springboot
-  name: spring-controller
+    name: springbootdockerexample
+  name: springbootdockerexample
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: springboot
+        name: springbootdockerexample
     spec:
       containers:
       - image: naresh240/springbootdockerexample
-        name: springboot
+        name: springbootdockerexample
         ports:
-        - name: springboot
-          containerPort: 8080      
+        - name: springbootdockerexample
+          containerPort: 8888      
 ---
 # Node Port Service
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: springboot
-  name: springboot
+    name: springbootdockerexample
+  name: springbootdockerexample
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8888
+      targetPort: 8888
   selector:
-    name: springboot
+    name: springbootdockerexample
