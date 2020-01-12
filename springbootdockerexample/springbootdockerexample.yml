@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: springboot
-        image: naresh240/springbootdockerexample-0.0.1-SNAPSHOT
+        image: naresh240/springbootdockerexample
         ports:
         - containerPort: 8080   
 ---      
