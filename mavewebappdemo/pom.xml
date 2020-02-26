@@ -11,7 +11,7 @@
 		<snapshotRepository>
           	   <id>nexus-releases</id>
       	   	   <name>Internal Snapshot</name>
-           	   <url>http://13.127.159.193:8081/repository/maven-snapshots/</url>
+           	   <url>http://13.127.159.193:8081/repository/sample-snapshot/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<dependencies>
