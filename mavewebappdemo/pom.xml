@@ -9,11 +9,11 @@
 	<url>http://maven.apache.org</url>
 	<distributionManagement>
 		<snapshotRepository>
-          	   <id>nexus-releases</id>
-      	   	   <name>Internal Snapshot</name>
-           	   <url>http://13.127.159.193:8081/repository/sample-snapshot/</url>
-		</snapshotRepository>
+    		  <id>nexus-snapshots</id>
+    		  <url>http://54.159.177.72:8081/nexus/content/maven-snapshots/snapshots</url>
+   		</snapshotRepository>
 	</distributionManagement>
+	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
@@ -23,6 +23,9 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>mavewebappdemo</finalName>
+		<plugin>
+ 	  		<groupId>org.apache.maven.plugins</groupId>
+  	 		 <artifactId>maven-deploy-plugin</artifactId>
+		</plugin>
 	</build>
 </project>
