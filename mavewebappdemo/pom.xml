@@ -13,7 +13,6 @@
     		  <url>http://54.159.177.72:8081/nexus/content/maven-snapshots/snapshots</url>
    		</snapshotRepository>
 	</distributionManagement>
-	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
@@ -23,9 +22,26 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<plugin>
-   			<groupId>org.apache.maven.plugins</groupId>
-   			<artifactId>maven-deploy-plugin</artifactId>
-		</plugin>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.3</version>
+					<executions>
+						<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+							<goals>
+								<goal>deploy</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<serverId>nexus</serverId>
+						<nexusUrl>http://54.159.177.72:8081//nexus/</nexusUrl>
+						<skipStaging>true</skipStaging>
+					</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
